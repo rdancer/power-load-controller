@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+power_data_path = "data/power_over_time_corrected.csv"
+events_data_path = "data/events_for_gnuplot.txt"
+
 # Load the power over time data and event labels
 power_data = pd.read_csv(power_data_path)
 events_data = pd.read_csv(events_data_path, sep=' ', parse_dates=['Time'])
