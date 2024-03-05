@@ -1,0 +1,23 @@
+name: Continuous Integration
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        pip install matplotlib pandas
+    - name: Run Makefile
+      run: make all
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: graph-image
+        path: power-load-graph-24hrs.png
