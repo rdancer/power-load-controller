@@ -1,4 +1,24 @@
-# Adjusting the simulation approach to correctly handle time ranges and events for gnuplot graphing
+import pandas as pd
+import numpy as np
+import datetime
+import random
+
+# Load devices from the previously saved structure
+devices = [
+    {"name": "Pool Pump", "load": 3, "preemptable": True, "scheduling_flexible": True, "demand_times": ["09:30", "15:00"]},
+    {"name": "Washing Machine", "load": 2, "preemptable": False, "scheduling_flexible": True, "demand_times": ["19:16", "23:28"]},
+    {"name": "A/C", "load": 5, "preemptable": False, "scheduling_flexible": True, "demand_times": ["12:00", "17:00", "22:00"]},
+    {"name": "Dishwasher", "load": 1.5, "preemptable": True, "scheduling_flexible": True, "demand_times": ["22:15"]},
+    {"name": "Refrigerator", "load": 1, "preemptable": False, "scheduling_flexible": False, "demand_times": []},  # Always on
+    {"name": "Microwave", "load": 2.5, "preemptable": False, "scheduling_flexible": False, "demand_times": ["18:23", "20:23", "08:05"]},
+    {"name": "Oven", "load": 4, "preemptable": False, "scheduling_flexible": False, "demand_times": ["12:30", "18:30"]},
+    {"name": "TV", "load": 0.5, "preemptable": True, "scheduling_flexible": True, "demand_times": ["20:00", "22:00"]},
+    {"name": "Computer", "load": 0.7, "preemptable": True, "scheduling_flexible": True, "demand_times": ["08:00", "23:00"]},
+    {"name": "Heater", "load": 3.5, "preemptable": False, "scheduling_flexible": False, "demand_times": ["06:30", "21:00"]}
+]
+
+# Define a maximum load
+max_load = 13
 
 # Helper function to convert time string to a timedelta for easier time manipulation
 def time_str_to_timedelta(time_str):
