@@ -1,0 +1,39 @@
+# Device: Pool Pump
+# Pool pumps can be scheduled to run at off-peak times, so they are flexible in scheduling.
+{"name": "Pool Pump", "load": 3, "preemptable": True, "scheduling_flexible": True, "demand_times": ["09:30", "15:00"]},
+
+# Device: Washing Machine
+# Washing cycles can be started at different times, thus they have flexible scheduling.
+{"name": "Washing Machine", "load": 2, "preemptable": False, "scheduling_flexible": True, "demand_times": ["19:16", "23:28"]},
+
+# Device: A/C
+# A/C usage can be adjusted based on peak hours, so it has a flexible schedule, although it is not preemptable once it's on.
+{"name": "A/C", "load": 5, "preemptable": False, "scheduling_flexible": True, "demand_times": ["12:00", "17:00", "22:00"]},
+
+# Device: Dishwasher
+# Dishwashers can be delayed to off-peak hours, so they have flexible scheduling and can be preempted.
+{"name": "Dishwasher", "load": 1.5, "preemptable": True, "scheduling_flexible": True, "demand_times": ["22:15"]},
+
+# Device: Refrigerator
+# Refrigerators run continuously and can neither be preempted nor have flexible scheduling.
+{"name": "Refrigerator", "load": 1, "preemptable": False, "scheduling_flexible": False, "demand_times": []},  # Always on
+
+# Device: Microwave
+# Microwaves are typically used on demand and have no flexible scheduling.
+{"name": "Microwave", "load": 2.5, "preemptable": False, "scheduling_flexible": False, "demand_times": ["18:23", "20:23", "08:05"]},
+
+# Device: Oven
+# Ovens are used based on meal times and thus have no flexible scheduling.
+{"name": "Oven", "load": 4, "preemptable": False, "scheduling_flexible": False, "demand_times": ["12:30", "18:30"]},
+
+# Device: TV
+# TVs are generally used based on personal schedule, but their usage is flexible.
+{"name": "TV", "load": 0.5, "preemptable": True, "scheduling_flexible": True, "demand_times": ["20:00", "22:00"]},
+
+# Device: Computer
+# Computers are typically used as needed, but usage can be flexible depending on the user.
+{"name": "Computer", "load": 0.7, "preemptable": True, "scheduling_flexible": True, "demand_times": ["08:00", "23:00"]},
+
+# Device: Heater
+# Heaters are often essential and are not preemptable, nor is their scheduling flexible.
+{"name": "Heater", "load": 3.5, "preemptable": False, "scheduling_flexible": False, "demand_times": ["06:30", "21:00"]}
