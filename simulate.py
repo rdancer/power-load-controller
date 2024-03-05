@@ -62,8 +62,8 @@ power_over_time_df = pd.DataFrame({'Time': power_over_time_corrected.index, 'Pow
 events_df = pd.DataFrame(events_corrected, columns=['Time', 'Label', 'Color'])
 
 # Save to files
-power_data_path = "/mnt/data/power_over_time_corrected.csv"
-events_data_path = "/mnt/data/events_for_gnuplot.txt"
+power_data_path = "data/power_over_time_corrected.csv"
+events_data_path = "data/events_for_gnuplot.txt"
 power_over_time_df.to_csv(power_data_path, index=False)
 events_df.to_csv(events_data_path, index=False, sep=' ')
 
