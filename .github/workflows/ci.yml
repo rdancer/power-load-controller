@@ -23,3 +23,10 @@ jobs:
       with:
         name: graph-image
         path: power-load-graph-24hrs.png
+    - name: Upload data files as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: data-files
+        path: |
+          data/power_over_time_corrected.csv
+          data/events_for_gnuplot.txt
