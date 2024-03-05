@@ -31,5 +31,6 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.legend()
 
-# Show plot
+# Save & show plot
+plt.savefig('power-load-graph-24hrs.png')
 plt.show()
